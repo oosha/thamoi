@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Thamoi - Self-care and you</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Include the Amplitude code to be added on every page that we want to track Amplitude data on -->
+    <script type="text/javascript">
+        !function () {"use strict"; !function (e, t) {var n = e.amplitude || {_q: [], _iq: {}}; if (n.invoked) e.console && console.error && console.error("Amplitude snippet has been loaded."); else {var r = function (e, t) {e.prototype[t] = function () {return this._q.push({name: t, args: Array.prototype.slice.call(arguments, 0)}), this}}, s = function (e, t, n) {return function (r) {e._q.push({name: t, args: Array.prototype.slice.call(n, 0), resolve: r})}}, o = function (e, t, n) {e[t] = function () {if (n) return {promise: new Promise(s(e, t, Array.prototype.slice.call(arguments)))}}}, i = function (e) {for (var t = 0; t < m.length; t++)o(e, m[t], !1); for (var n = 0; n < g.length; n++)o(e, g[n], !0)}; n.invoked = !0; var u = t.createElement("script"); u.type = "text/javascript", u.integrity = "sha384-x0ik2D45ZDEEEpYpEuDpmj05fY91P7EOZkgdKmq4dKL/ZAVcufJ+nULFtGn0HIZE", u.crossOrigin = "anonymous", u.async = !0, u.src = "https://cdn.amplitude.com/libs/analytics-browser-2.0.0-min.js.gz", u.onload = function () {e.amplitude.runQueuedFunctions || console.log("[Amplitude] Error: could not load SDK")}; var a = t.getElementsByTagName("script")[0]; a.parentNode.insertBefore(u, a); for (var c = function () {return this._q = [], this}, p = ["add", "append", "clearAll", "prepend", "set", "setOnce", "unset", "preInsert", "postInsert", "remove", "getUserProperties"], l = 0; l < p.length; l++)r(c, p[l]); n.Identify = c; for (var d = function () {return this._q = [], this}, f = ["getEventProperties", "setProductId", "setQuantity", "setPrice", "setRevenue", "setRevenueType", "setEventProperties"], v = 0; v < f.length; v++)r(d, f[v]); n.Revenue = d; var m = ["getDeviceId", "setDeviceId", "getSessionId", "setSessionId", "getUserId", "setUserId", "setOptOut", "setTransport", "reset", "extendSession"], g = ["init", "add", "remove", "track", "logEvent", "identify", "groupIdentify", "setGroup", "revenue", "flush"]; i(n), n.createInstance = function (e) {return n._iq[e] = {_q: []}, i(n._iq[e]), n._iq[e]}, e.amplitude = n} }(window, document)}();
+
+        amplitude.init('dba20e7e32d6f04910ae6fda6b48ec92', {
+            defaultTracking: {
+                pageViews: true,
+                sessions: true,
+                formInteractions: true,
+                fileDownloads: true,
+            },
+        });
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS to adjust the stacking order of FAB and modal */
+        .fab {
+            z-index: 1;
+        }
+
+        .modal {
+            z-index: 2;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header-section">
+        <div class="header-background"></div>
+        <h1 class="website-title">Thamoi</h1>
+        <h3 class="website-tagline">Share and learn all about self-care</h3>
+    </header>
+
+    <!-- Navigation Section -->
+    <section class="navigation-section">
+        <div class="filter-tags">
+            <!-- Filter tags element content -->
+        </div>
+        <div class="add-article">
+            <!-- Add article element content
+            <button id="submit-article-btn">Share an Article, Help Someone</button>
+            -->
+        </div>
+    </section>
+
+    <!-- Add Article Button -->
+    <button id="add-article-fab" class="fab">Add an article</button>
+
+    <!-- Articles Listing Section -->
+    <section class="articles-listing-section">
+        <!-- List of articles -->
+        <article class="article">
+            <div class="votes">
+                <!-- Votes element content -->
+            </div>
+            <h2 class="article-title">Article Title</h2>
+            <p class="article-description">Article description</p>
+            <div class="tags">
+                <!-- Tags element content -->
+            </div>
+            <p class="added-by">Added by: John Doe</p>
+        </article>
+        <!-- More articles... -->
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="footer-background"></div>
+        <h4 class="copyright">&copy; 2023 Thamoi. All rights reserved.</h4>
+        <h4 class="contact">Give us a holler at <a href="mailto:hello@thamoi.com">hello@thamoi.com</a></h4>
+    </footer>
+
+
+    <!-- Modal for Submitting an Article.FAB -->
+    <div id="add-article-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add an Article that could help someone</h2>
+            <form id="article-form">
+                <div class="form-row">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-row">
+                    <label for="url">Article URL:</label>
+                    <input type="url" id="url" name="url" required>
+                </div>
+                <div class="form-row">
+                    <label for="title">Article Title:</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-row">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" required class="description-field"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <label for="tags">Related Tags:</label>
+                    <select id="tags" name="tags" multiple required>
+                        <!-- JavaScript code will populate the tags here -->
+                    </select>
+                </div>
+                <div class="form-row">
+                    <input type="submit" value="Share the Article Now">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Include the Amplitude code to be added on every page that we want to track Amplitude data on -->
+    <script type="text/javascript">
+        !function () {"use strict"; !function (e, t) {var n = e.amplitude || {_q: [], _iq: {}}; if (n.invoked) e.console && console.error && console.error("Amplitude snippet has been loaded."); else {var r = function (e, t) {e.prototype[t] = function () {return this._q.push({name: t, args: Array.prototype.slice.call(arguments, 0)}), this}}, s = function (e, t, n) {return function (r) {e._q.push({name: t, args: Array.prototype.slice.call(n, 0), resolve: r})}}, o = function (e, t, n) {e[t] = function () {if (n) return {promise: new Promise(s(e, t, Array.prototype.slice.call(arguments)))}}}, i = function (e) {for (var t = 0; t < m.length; t++)o(e, m[t], !1); for (var n = 0; n < g.length; n++)o(e, g[n], !0)}; n.invoked = !0; var u = t.createElement("script"); u.type = "text/javascript", u.integrity = "sha384-x0ik2D45ZDEEEpYpEuDpmj05fY91P7EOZkgdKmq4dKL/ZAVcufJ+nULFtGn0HIZE", u.crossOrigin = "anonymous", u.async = !0, u.src = "https://cdn.amplitude.com/libs/analytics-browser-2.0.0-min.js.gz", u.onload = function () {e.amplitude.runQueuedFunctions || console.log("[Amplitude] Error: could not load SDK")}; var a = t.getElementsByTagName("script")[0]; a.parentNode.insertBefore(u, a); for (var c = function () {return this._q = [], this}, p = ["add", "append", "clearAll", "prepend", "set", "setOnce", "unset", "preInsert", "postInsert", "remove", "getUserProperties"], l = 0; l < p.length; l++)r(c, p[l]); n.Identify = c; for (var d = function () {return this._q = [], this}, f = ["getEventProperties", "setProductId", "setQuantity", "setPrice", "setRevenue", "setRevenueType", "setEventProperties"], v = 0; v < f.length; v++)r(d, f[v]); n.Revenue = d; var m = ["getDeviceId", "setDeviceId", "getSessionId", "setSessionId", "getUserId", "setUserId", "setOptOut", "setTransport", "reset", "extendSession"], g = ["init", "add", "remove", "track", "logEvent", "identify", "groupIdentify", "setGroup", "revenue", "flush"]; i(n), n.createInstance = function (e) {return n._iq[e] = {_q: []}, i(n._iq[e]), n._iq[e]}, e.amplitude = n} }(window, document)}();
+
+        amplitude.init('dba20e7e32d6f04910ae6fda6b48ec92', {
+            defaultTracking: {
+                pageViews: true,
+                sessions: true,
+                formInteractions: true,
+                fileDownloads: true,
+            },
+        });
+    </script>
+
+
+    <script>
+        // Add event listener to handle button click. FAB
+        const addButton = document.getElementById('add-article-fab');
+        addButton.addEventListener('click', () => {
+            const modal = document.getElementById('add-article-modal');
+            modal.style.display = 'block';
+        });
+
+        // Close modal when the close button is clicked
+        const closeButton = document.querySelector('#add-article-modal .close');
+        closeButton.addEventListener('click', () => {
+            const modal = document.getElementById('add-article-modal');
+            modal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside the modal
+        window.addEventListener('click', (event) => {
+            const modal = document.getElementById('add-article-modal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // JavaScript code moved here to it runs after the HTML content is loaded
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Function to populate the tags dropdown in the Add article modal
+            function populateTagsDropdown() {
+                const filterTags = document.querySelectorAll('.filter-tags .tag');
+                const tagsDropdown = document.getElementById('tags');
+
+                filterTags.forEach((tag) => {
+                    const tagName = tag.textContent;
+                    const option = document.createElement('option');
+                    option.value = tagName;
+                    option.text = tagName;
+                    tagsDropdown.appendChild(option);
+                });
+            }
+
+            // Wait for the filter tags to be loaded, then call the function to populate the tags dropdown
+            setTimeout(populateTagsDropdown, 5000);
+
+            // Get the submit article button element
+            const submitButton = document.getElementById('submit-article-btn');
+
+            // Function to open the modal
+            function openModal() {
+                const modal = document.getElementById('add-article-modal');
+                modal.style.display = 'block';
+            }
+
+            // Add event listener to handle button clicks
+            submitButton.addEventListener('click', openModal);
+            addButton.addEventListener('click', openModal);
+
+            // Close modal when the close button is clicked
+            const closeButton = document.querySelector('#add-article-modal .close');
+            closeButton.addEventListener('click', () => {
+                const modal = document.getElementById('add-article-modal');
+                modal.style.display = 'none';
+            });
+
+            // Submit article form handler
+            const articleForm = document.getElementById('article-form');
+            articleForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                const url = document.getElementById('url').value;
+                const title = document.getElementById('title').value;
+                const description = document.getElementById('description').value;
+                const tags = Array.from(document.getElementById('tags').selectedOptions, (option) => option.value);
+
+                createArticleRecord(name, url, title, description, tags);
+            });
+        });
+
+    </script>
+
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
