@@ -152,10 +152,19 @@ body {
   width: 20px;
   text-align: center;
   margin-top: 20px;
+  cursor: pointer;
+}
+
+.votes:hover {
+ color: #FF874A;
 }
 
 .article-title {
   /* Article title element styles */
+}
+
+.article-title:hover {
+ color: #FF874A;
 }
 
 .article-description {
@@ -364,6 +373,7 @@ input[type="submit"]:hover {
   .votes {
       width: 10px;
     }
+
 
 
   /* Navigation Section */
